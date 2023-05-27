@@ -1,5 +1,7 @@
 'use client';
 
+import '../../public/assets/css/mobilemenu.css';
+import '../../public/assets/css/styles.css';
 import AboutMe from '@components/AboutMe';
 import BackToTop from '@components/BackToTop';
 import Blog from '@components/Blog';
