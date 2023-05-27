@@ -270,7 +270,6 @@ export default function Blog() {
                     <h3 className="text-[25px] leading-7 font-heebo font-bold">
                       <span
                         className="text-primary hover:text-accent1 dark:text-white dark:hover:text-accent1 transition-all duration-300"
-                        href="#"
                       >
                         How to create a website using html
                       </span>
