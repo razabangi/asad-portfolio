@@ -2,20 +2,47 @@
 
 import '../../public/assets/css/mobilemenu.css';
 import '../../public/assets/css/styles.css';
-import AboutMe from '@components/AboutMe';
-import BackToTop from '@components/BackToTop';
-import Blog from '@components/Blog';
-import CompanyLogo from '@components/CompanyLogo';
-import Contact from '@components/Contact';
-import DarkModeButton from '@components/DarkModeButton';
-import EducationExperience from '@components/EducationExperience';
-import Footer from '@components/Footer';
-import Header from '@components/Header';
-import HeroSection from '@components/HeroSection';
-import Loader from '@components/Loader';
-import ProjectShowcase from '@components/ProjectShowcase';
-import ServiceSection from '@components/ServiceSection';
-import Skill from '@components/Skill';
+import dynamic from 'next/dynamic';
+
+const Skill = dynamic(() => import('../../components/Skill'), {
+  ssr: false
+});
+const Loader = dynamic(() => import('../../components/Loader'), {
+  ssr: false
+});
+const ProjectShowcase = dynamic(() => import('../../components/ProjectShowcase'), {
+  ssr: false
+});
+const ServiceSection = dynamic(() => import('../../components/ServiceSection'), {
+  ssr: false
+});
+const AboutMe = dynamic(() => import('../../components/AboutMe'), {
+  ssr: false
+});
+const BackToTop = dynamic(() => import('../../components/BackToTop'), {
+  ssr: false
+});
+const Blog = dynamic(() => import('../../components/Blog'), {
+  ssr: false
+});
+const Contact = dynamic(() => import('../../components/Contact'), {
+  ssr: false
+});
+const DarkModeButton = dynamic(() => import('../../components/DarkModeButton'), {
+  ssr: false
+});
+const EducationExperience = dynamic(() => import('../../components/EducationExperience'), {
+  ssr: false
+});
+const Footer = dynamic(() => import('../../components/Footer'), {
+  ssr: false
+});
+const Header = dynamic(() => import('../../components/Header'), {
+  ssr: false
+});
+const HeroSection = dynamic(() => import('../../components/HeroSection'), {
+  ssr: false
+});
 
 export default function Home() {
   return (
