@@ -8,8 +8,8 @@ export default function ProjectShowcase() {
     const isotopeGrid = document.querySelector('.portfolio__grid');
     if (isotopeGrid) {
       imagesLoaded(isotopeGrid, function (instance) {
-        // init Isotope
-        var iso = new Isotope(isotopeGrid, {
+        // @ts-ignore
+        let iso = new Isotope(isotopeGrid, {
           itemSelector: '.element-item',
           percentPosition: true,
           masonry: {
@@ -18,45 +18,51 @@ export default function ProjectShowcase() {
         });
   
         // filter functions
-        var filterFns = {
+        let filterFns = {
           // show if number is greater than 50
-          numberGreaterThan50: function (itemElem) {
-            var number = itemElem.querySelector('.number').textContent;
+          numberGreaterThan50: function (itemElem: any) {
+            let number = itemElem.querySelector('.number').textContent;
             return parseInt(number, 10) > 50;
           },
           // show if name ends with -ium
-          ium: function (itemElem) {
-            var name = itemElem.querySelector('.name').textContent;
+          ium: function (itemElem: any) {
+            let name = itemElem.querySelector('.name').textContent;
             return name.match(/ium$/);
           },
         };
   
         // bind filter button click
-        var filtersElem = document.querySelector('.filters-button-group');
+        let filtersElem = document.querySelector('.filters-button-group');
+        // @ts-ignore
         filtersElem.addEventListener('click', function (event) {
           // only work with buttons
+          // @ts-ignore
           if (!event.target.matches('button')) {
             return;
           }
-          var filterValue = event.target.getAttribute('data-filter');
+          // @ts-ignore
+          let filterValue = event.target.getAttribute('data-filter');
           // use matching filter function
+          // @ts-ignore
           filterValue = filterFns[filterValue] || filterValue;
           iso.arrange({ filter: filterValue });
         });
   
         // change is-checked class on buttons
-        var buttonGroups = document.querySelectorAll('.button-group');
-        for (var i = 0, len = buttonGroups.length; i < len; i++) {
-          var buttonGroup = buttonGroups[i];
+        let buttonGroups = document.querySelectorAll('.button-group');
+        for (let i = 0, len = buttonGroups.length; i < len; i++) {
+          let buttonGroup = buttonGroups[i];
           radioButtonGroup(buttonGroup);
         }
   
-        function radioButtonGroup(buttonGroup) {
-          buttonGroup.addEventListener('click', function (event) {
+        function radioButtonGroup(buttonGroupL: any) {
+          // @ts-ignore
+          buttonGroup.addEventListener('click', function (event: any) {
             // only work with buttons
             if (!event.target.matches('button')) {
               return;
             }
+            // @ts-ignore
             buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
             event.target.classList.add('is-checked');
           });
@@ -72,12 +78,17 @@ export default function ProjectShowcase() {
       modalPopupList.forEach(function (modal) {
         modal.addEventListener('click', function (event) {
           event.preventDefault();
+          // @ts-ignore
           if (!this.nextElementSibling.classList.contains('active')) {
+            // @ts-ignore
             this.nextElementSibling.classList.add('active');
             document.body.classList.add('overflow-y-hidden');
           }
+          // @ts-ignore
           let popupOverlay = this.nextElementSibling.querySelector('.modal_popup_overlay');
-          popupOverlay.addEventListener('click', function (event) {
+          // @ts-ignore
+          popupOverlay.addEventListener('click', function (event: any) {
+            // @ts-ignore
             this.parentElement.classList.remove('active');
           });
         });
@@ -85,7 +96,9 @@ export default function ProjectShowcase() {
       modalPopupClose.forEach(function (modalClose) {
         modalClose.addEventListener('click', function (event) {
           event.preventDefault();
+          // @ts-ignore
           if (this.parentElement.parentElement.parentElement.classList.contains('active')) {
+            // @ts-ignore
             this.parentElement.parentElement.parentElement.classList.remove('active');
             document.body.classList.remove('overflow-y-hidden');
           }

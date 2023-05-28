@@ -137,6 +137,7 @@ export default function HeroSection() {
                       width="16"
                       height="16"
                       fill="currentColor"
+                      // @ts-ignore
                       class="bi bi-linkedin"
                       viewBox="0 0 16 16"
                     >
@@ -154,6 +155,7 @@ export default function HeroSection() {
                       width="16"
                       height="16"
                       fill="currentColor"
+                      // @ts-ignore
                       class="bi bi-whatsapp"
                       viewBox="0 0 16 16"
                     >

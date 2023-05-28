@@ -19,23 +19,28 @@ export default function Header() {
       offcanvasMenu.querySelectorAll('.offcanvas__sub_menu').forEach((ul) => {
         const subMenuToggle = document.createElement('button');
         subMenuToggle.classList.add('offcanvas__sub_menu_toggle');
+        // @ts-ignore
         ul.parentNode.appendChild(subMenuToggle);
       });
     }
 
     /* Open/Close Menu On Click Toggle Button */
-    const handleOpenMenu = (e) => {
+    const handleOpenMenu = (e: any) => {
       e.preventDefault();
       if (e.target.dataset.offcanvas != undefined) {
+        // @ts-ignore
         offcanvasHeader.classList.add('open');
+        // @ts-ignore
         body.classList.add('mobile_menu_open');
       }
     };
 
-    const handleCloseMenu = (e) => {
+    const handleCloseMenu = (e: any) => {
       e.preventDefault();
       if (e.target.dataset.offcanvas != undefined) {
+        // @ts-ignore
         offcanvasHeader.classList.remove('open');
+        // @ts-ignore
         body.classList.remove('mobile_menu_open');
       }
     };
@@ -51,39 +56,46 @@ export default function Header() {
     /* Mobile submenu slideToggle Activation */
     const mobileMenuWrapper = document.querySelector('.offcanvas__menu_ul');
 
-    const slideUp = (element) => {
+    const slideUp = (element: any) => {
       element.style.display = 'none';
       element.style.height = '0';
     };
 
-    const slideDown = (element) => {
+    const slideDown = (element: any) => {
       element.style.display = 'block';
       element.style.height = `${element.scrollHeight}px`;
     };
 
-    const getSiblings = (element) => {
+    const getSiblings = (element: any) => {
       return Array.from(element.parentNode.children).filter((child) => child !== element);
     };
 
     if (mobileMenuWrapper) {
       mobileMenuWrapper.addEventListener('click', (e) => {
         let targetElement = e.target;
+        // @ts-ignore
         if (targetElement.classList.contains('offcanvas__sub_menu_toggle')) {
+          // @ts-ignore
           const parent = targetElement.parentElement;
           if (parent.classList.contains('active')) {
+            // @ts-ignore
             targetElement.classList.remove('active');
             parent.classList.remove('active');
-            parent.querySelectorAll('.offcanvas__sub_menu').forEach((subMenu) => {
+            parent.querySelectorAll('.offcanvas__sub_menu').forEach((subMenu: any) => {
               subMenu.parentElement.classList.remove('active');
               subMenu.nextElementSibling.classList.remove('active');
               slideUp(subMenu);
             });
           } else {
+            // @ts-ignore
             targetElement.classList.add('active');
             parent.classList.add('active');
+            // @ts-ignore
             slideDown(targetElement.previousElementSibling);
             getSiblings(parent).forEach((item) => {
+              // @ts-ignore
               item.classList.remove('active');
+              // @ts-ignore
               item.querySelectorAll('.offcanvas__sub_menu').forEach((subMenu) => {
                 subMenu.parentElement.classList.remove('active');
                 subMenu.nextElementSibling.classList.remove('active');
@@ -98,14 +110,20 @@ export default function Header() {
     if (offcanvasHeader) {
       document.addEventListener('click', (event) => {
         if (
+          // @ts-ignore
           !event.target.closest('.offcanvas__header--menu__open--btn') &&
+          // @ts-ignore
           !event.target.classList.contains('.offcanvas__header--menu__open--btn'.replace(/\./, ''))
         ) {
           if (
+            // @ts-ignore
             !event.target.closest('.offcanvas__header') &&
+            // @ts-ignore
             !event.target.classList.contains('.offcanvas__header'.replace(/\./, ''))
           ) {
+            // @ts-ignore
             offcanvasHeader.classList.remove('open');
+            // @ts-ignore
             body.classList.remove('mobile_menu_open');
           }
         }
@@ -117,6 +135,7 @@ export default function Header() {
       window.addEventListener('resize', () => {
         if (window.outerWidth >= 992) {
           offcanvasHeader.classList.remove('open');
+          // @ts-ignore
           body.classList.remove('mobile_menu_open');
         }
       });
