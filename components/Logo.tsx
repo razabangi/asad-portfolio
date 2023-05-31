@@ -1,19 +1,30 @@
-'use client'
+'use client';
 
-import Image from "next/image";
-import logoImage from "@images/logo.png";
+import Image from 'next/image';
+import logoImage from '@images/site-logo/1.png';
+import darkLogoImage from '@images/site-logo/1a.png';
 
-export default function Logo () {
-    return (
-        <>
-        <div className="logo">
-            <a href="/">
-                <Image  className="hidden dark:block"
-                src="/assets/images/logo-light.png"
-                alt="" width={100} height={100} />
-                <Image className="dark:hidden" src={logoImage} width={100} height={100} alt="" />
-            </a>
-        </div>
-        </>
-    );
+export default function Logo() {
+  return (
+    <>
+      <div className="logo">
+        <a href="/">
+          <Image
+            className="hidden dark:block"
+            src={darkLogoImage}
+            alt=""
+            width={150}
+            height={150}
+          />
+          <Image
+            className="dark:hidden"
+            src={logoImage}
+            width={150}
+            height={150}
+            alt=""
+          />
+        </a>
+      </div>
+    </>
+  );
 }
