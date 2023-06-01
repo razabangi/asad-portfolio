@@ -65,7 +65,7 @@ export default function HeroSection() {
               HELLO I'M
             </span>
             <h2 className="lg:text-[45px] only-md:text-[40px] sm:text-[28px] font-bold font-heebo text-heading dark:text-white">
-              Muhammad Raza Bangi!{' '}
+              Asad Amjad!{' '}
             </h2>
             <h4 className="font-heebo font-normal text-primary dark:text-white">
               Full Stack Developer{' '}
